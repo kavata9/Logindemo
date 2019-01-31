@@ -65,3 +65,33 @@ class _LoginSignUpPageState extends State<LoginSignUpPage>{
       ),
     );
   }
+
+  Widget _showSecondaryButton() {
+    return new FlatButton(
+      child: _formMode == FormMode.LOGIN
+          ? new Text('Create an account',
+          style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300))
+          : new Text('Have an account? Sign in',
+          style:
+          new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300)),
+      onPressed: _formMode == FormMode.LOGIN
+          ? _changeFormToSignUp
+          : _changeFormToLogin,
+    );
+  }
+  Widget _showPrimaryButton() {
+    return new Padding(
+        padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
+        child: new MaterialButton(
+          elevation: 5.0,
+          minWidth: 200.0,
+          height: 42.0,
+          color: Colors.blue,
+          child: _formMode == FormMode.LOGIN
+              ? new Text('Login',
+              style: new TextStyle(fontSize: 20.0, color: Colors.white))
+              : new Text('Create account',
+              style: new TextStyle(fontSize: 20.0, color: Colors.white)),
+          onPressed: _validateAndSubmit,
+        ));
+  }
