@@ -6,28 +6,71 @@ class LoginSignUpPage extends StatefulWidget {
 }
 enum FormMode { LOGIN, SIGNUP }
 
-class _LoginSignUpPageState extends State<LoginSignUpPage>{
+class _LoginSignUpPageState extends State<LoginSignUpPage> {
+
+  @override
+  void initState() {
+    _errorMessage = "";
+    _isLoading = false;
+    super.initState();
+  }
+
+  void _changeFormToSignUp() {
+    _formKey.currentState.reset();
+    _errorMessage = "";
+    setState(() {
+      _formMode = FormMode.SIGNUP;
+    });
+  }
+
+  void _changeFormToLogin() {
+    _formKey.currentState.reset();
+    _errorMessage = "";
+    setState(() {
+      _formMode = FormMode.LOGIN;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    _isIos = Theme.of(context).platform == TargetPlatform.iOS;
+    _isIos = Theme
+        .of(context)
+        .platform == TargetPlatform.iOS;
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("Flutter login demo"),
-      ),
-      body: Stack(
-    children: <Widget>[
-    _showBody(),
-    _showCircularProgress(),
-    ],
-      ));
-}
-  Widget _showCircularProgress(){
+        appBar: new AppBar(
+          title: new Text("Flutter login demo"),
+        ),
+        body: Stack(
+          children: <Widget>[
+            _showBody(),
+            _showCircularProgress(),
+          ],
+        ));
+  }
+
+  Widget _showCircularProgress() {
     if (_isLoading) {
       return Center(child: CircularProgressIndicator());
-    } return Container(height: 0.0, width: 0.0,);
-
+    }
+    return Container(height: 0.0, width: 0.0,);
   }
+  Widget _showErrorMessage() {
+    if (_errorMessage.length > 0 && _errorMessage != null) {
+      return new Text(
+        _errorMessage,
+        style: TextStyle(
+            fontSize: 13.0,
+            color: Colors.red,
+            height: 1.0,
+            fontWeight: FontWeight.w300),
+      );
+    } else {
+      return new Container(
+        height: 0.0,
+      );
+    }
+  }
+
   Widget _showEmailInput() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
@@ -79,6 +122,7 @@ class _LoginSignUpPageState extends State<LoginSignUpPage>{
           : _changeFormToLogin,
     );
   }
+
   Widget _showPrimaryButton() {
     return new Padding(
         padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 0.0),
@@ -95,3 +139,4 @@ class _LoginSignUpPageState extends State<LoginSignUpPage>{
           onPressed: _validateAndSubmit,
         ));
   }
+}
