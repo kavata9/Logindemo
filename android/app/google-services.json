@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "830435240114",
+    "firebase_url": "https://logindemo-dab06.firebaseio.com",
+    "project_id": "logindemo-dab06",
+    "storage_bucket": "logindemo-dab06.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830435240114:android:b5a3f04adafdd525",
+        "android_client_info": {
+          "package_name": "io.github.kavata9.loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830435240114-56lq85aamld0241vtnk67khdq7c9r0rf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMFUUGqd8ZH0a3gAJnIanU4S_RcCP9d9U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
